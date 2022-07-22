@@ -1,0 +1,92 @@
+main {
+    display: block;
+    flex-direction: row;
+    justify-content: space-evenly;
+    z-index: 1;
+}
+#start{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+  #HeroHP {
+    display: none;
+    width: 10%;
+    height: 18px;
+    background-color: rgb(253, 251, 251);
+    border-radius: 15px;
+    position:absolute;
+  }
+  #Herohp {
+    width: 100%;
+    height: 18px;
+    background-color: #00ac2b;
+    color: rgb(253, 251, 251);
+    border-radius: 15px;
+    position:absolute;
+  }
+  #hhp{
+    width: 100%;
+    height: 18px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 15px;
+    position:absolute;
+    color: black;
+    font-weight: bold;
+  }
+  #HeroSP {
+    display: none;
+    width: 10%;
+    background-color: rgb(253, 251, 251);
+    border-radius: 15px;
+    height: 18px;
+  }
+  #Herosp {
+    width: 100%;
+    height: 18px;
+    background-color: #4252c8;
+    text-align: center;
+    line-height: 18px;
+    color: rgb(253, 251, 251);
+    border-radius: 15px;
+  }
+  #sp{
+    width: 100%;
+    height: 18px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 15px;
+    position:absolute;
+    color: black;
+    font-weight: bold;
+  }
+  #DemonHP {
+    display: none;
+    width: 15%;
+    height: 25px;
+    background-color: rgb(253, 251, 251);
+    border-radius: 15px;
+  }
+  #Demonhp {
+    width: 100%;
+    height: 25px;
+    background-color: #b21711;
+    text-align: center;
+    line-height: 25px;
+    color: rgb(253, 251, 251);
+    border-radius: 15px;
+  }
+  #dhp{
+    width: 100%;
+    height: 18px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 15px;
+    position:absolute;
+    color: black;
+    font-weight: bold;
+  }
