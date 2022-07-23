@@ -150,7 +150,7 @@ function HeroAttack(){
     DMstat()
     DemonStat()
     function AttackMove(){
-    const main = newCharacter('./assets/attack1.gif')
+    const main = newCharacter('./assets/Attack1.gif')
     move(main).to(180, 200)
     document.getElementById('Hero').style.display = 'none'
     setTimeout(()=> document.getElementById('Hero').style.display = 'flex',400 )
