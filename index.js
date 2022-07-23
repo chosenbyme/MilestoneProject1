@@ -1,4 +1,22 @@
 //declaration of main functions
+class sound{ constructor(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+  }
+}
+
+var GameSound;
+
 function HealthBar(){
     let HPbar = document.getElementById('HeroHP')
     HPbar.style.display = 'flex'
@@ -36,7 +54,7 @@ function HeroStat(){
     hp.id = 'Stat'
     document.body.append(hp)
     move(hp).to(330, 370)
-    setTimeout(()=>hp.remove(),1000)
+    setTimeout(()=>hp.remove(),1500)
 }
 
 function DemonStat(){
@@ -45,7 +63,7 @@ function DemonStat(){
     hp.id = 'Stat'
     document.body.append(hp)
     move(hp).to(920, 550)
-    setTimeout(()=>hp.remove(),1000)
+    setTimeout(()=>hp.remove(),1500)
 }
 
 function SkillStat(){
@@ -54,7 +72,7 @@ function SkillStat(){
     hp.id = 'Stat'
     document.body.append(hp)
     move(hp).to(330, 400)
-    setTimeout(()=>hp.remove(),1000)
+    setTimeout(()=>hp.remove(),1500)
 }
 
 function UltimateStat(){
@@ -63,7 +81,7 @@ function UltimateStat(){
     hp.id = 'Stat'
     document.body.append(hp)
     move(hp).to(330, 430)
-    setTimeout(()=>hp.remove(),1000)
+    setTimeout(()=>hp.remove(),1500)
 }
 
 function SPstat(){    
@@ -240,6 +258,8 @@ function DemonUltimate(){
         const effect0 = newEffect(550,550,3)
         const effect1 = newEffect(650,550,4)
         const effect2 = newEffect(750,550,5)
+        GameSound = new sound('./assets/sound/Explosion.mp3')
+        setTimeout(() =>GameSound.play(),1500)
         await Promise.all[
             effect0.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
             effect1.LowLeft(2000,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
@@ -253,7 +273,7 @@ function DemonUltimate(){
 ///Skill effect
 
 async function GetUserChoice(){
-    await sleep(3000)
+    await sleep(3300)
     let PlayDiv = document.createElement('div')
     let attack = document.createElement('input')
     PlayDiv.style.position = 'relative'

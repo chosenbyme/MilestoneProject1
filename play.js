@@ -1,3 +1,4 @@
+// the loop function here is inspirated by Captain Anonymous https://codepen.io/anon/pen/jzpZMa?editors=0011
 const loop = async () => {
     let result = document.Get
   while (result != 'dead') {
@@ -32,7 +33,6 @@ function StartButton(){
     BossBar()
     SPBar()
     loop()
-
 }
 
 function Win(){
@@ -50,12 +50,14 @@ function Lose(){
     end.style.position = 'absolute'
     end.style.zIndex = '10'
     document.body.append(end)
+    document.getElementById('again').style.display = 'block'
 }
 function Wasted(){
     let end = document.createElement('img')
-    end.src = './assets/victory.png'
+    end.src = './assets/lose.png'
     end.id = 'end'
     end.style.position = 'absolute'
     end.style.zIndex = '10'
     document.body.append(end)
+    document.getElementById('again').style.display = 'block'
 }

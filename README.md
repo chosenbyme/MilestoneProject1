@@ -2,9 +2,11 @@
 <!-- <Demon Slayer> -->
 Description:
  a RPG boardgame with 2D action graphic.
+
 abstract:
 Command your hero. Beat the Demon.
 -------------UI-------------
+
 Stats:HP/SP
 skill would spend SP
 //Stat//
@@ -19,6 +21,7 @@ Demon:3999HP
 -Ultimate:10%(229~259)DMG  
 
 -------------Classification-------------
+
 Hero: 
 "Heroic Strike" attack target, deals damage (normal attack)
 
@@ -31,24 +34,29 @@ SP cost:All
 Demon:
 "Fire Strike" attack target, deals damage (normal attack)
 
-23%:"Hate Strike" recklessly attack target, deals moderate damage 
-15%:"Destruction" destructive strike that deals high damage.
+15%:"Flame Attack" recklessly attack target with fire, deals moderate damage 
+
+10%:"Destruction" destructive strike that deals high damage.
 
 -------------Goal-------------
 HP/SP will be updated across the game
 
 Win: boss's HP is less than or equal to 0
+
 Lose: heros's HP is less than or equal to 0
+
+Wasted: Both Boss & Hero die at the same time.
 -------------position-------------
-1:Boss
-2.player
+Boss & Hero will act simultaneously
 -------------play-------------
 click "start" to enter the battle!
-choose "attack" to use normal attack or 
-choose "skill attack" to use speical skill(alerts)
+
+choose "attack" to use normal attack  
+
+choose "skill" to use speical skill(alerts)
+
+choose "ultimate" to use strong attack(alerts)
 
 Boss has certain chance to use his skill as well each round. there will be alters when it happens.
 
-click "Next" to enter next level of battle.
-
-click "Try again" to restart the game.
+Click "Try again" to restart the game.

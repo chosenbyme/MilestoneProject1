@@ -1,5 +1,5 @@
 main {
-    display: block;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     z-index: 1;
@@ -12,6 +12,16 @@ main {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 10;
+}
+#again{
+  display: none;
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 #end{
     margin: 0;
@@ -41,7 +51,6 @@ main {
     font-weight: bold;
     z-index: 10;
 }
-
   #HeroHP {
     display: none;
     width: 10%;
