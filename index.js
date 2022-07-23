@@ -1,6 +1,7 @@
 //Sound source: https://www.freesoundeffects.com/
 //Image source:https://itch.io/  https://www.aigei.com/
 
+//initializing sound * UI when game started
 class sound{ constructor(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -43,7 +44,7 @@ function SPBar(){
     move(SPbar).to(280, 327)
     return SPbar 
     }
-//battle stat parameters declaritions(global)
+//battle stat parameters & update functions
 var HeroHP = 999
 var DemonHP = 3999
 var SP = 100
@@ -138,6 +139,8 @@ function HPstat(){
             document.getElementById('Herohp').style.width = z + '%'; 
             document.getElementById('hhp').textContent = z + '%'}, 0)
         }
+
+///Game actions & effect
 function HeroAttack(){
     dmg = Math.floor(Math.random() * 51)+299
     DemonHP -= dmg
@@ -297,7 +300,7 @@ function DemonUltimate(){
     return HeroHP     
 }
 
-///Skill effect
+// promise function for player's control UI
 
 async function GetUserChoice(){
     await sleep(3300)
@@ -375,6 +378,8 @@ async function GetUserChoice(){
     }
     )
 }
+
+//code for movement of elements
 
 function move(element) {
     element.style.position = 'fixed'

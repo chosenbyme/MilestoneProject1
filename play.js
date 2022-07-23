@@ -15,6 +15,8 @@ const loop = async () => {
   }
 }
 
+//Functions calling when game is starting
+
 function StartButton(){
     GameSound.play()
     document.getElementById('start').remove()
@@ -35,6 +37,8 @@ function StartButton(){
     SPBar()
     loop()
 }
+
+//declarations of outcomes
 
 function Win(){
     let end = document.createElement('img')
