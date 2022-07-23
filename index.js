@@ -303,7 +303,7 @@ function DemonUltimate(){
 // promise function for player's control UI
 
 async function GetUserChoice(){
-    await sleep(3300)
+    await sleep(3100)
     let PlayDiv = document.createElement('div')
     let attack = document.createElement('input')
     PlayDiv.style.position = 'relative'
@@ -313,7 +313,7 @@ async function GetUserChoice(){
     attack.style.position = 'relative'
     attack.style.zIndex = '2'
     attack.id = 'attack'
-    attack.setAttribute('title', 'Heroic Strike: Has 35% chance to restore 10 SP'); 
+    attack.setAttribute('title', 'Heroic Strike: Has 65% chance to restore 10 SP'); 
     move(attack).to(410, 330)
     let skill = document.createElement('input')
     skill.setAttribute('type', 'image');
@@ -321,7 +321,7 @@ async function GetUserChoice(){
     skill.style.position = 'relative'
     skill.style.zIndex = '2'
     skill.id = 'skill'
-    skill.setAttribute('title', 'Blade Storm: Cost 20SP to deal higher damage'); 
+    skill.setAttribute('title', 'Blade Storm: Cost 20 SP to deal higher damage'); 
     move(skill).to(410, 280)
     let ultimate = document.createElement('input')
     ultimate.setAttribute('type', 'image');
