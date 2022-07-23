@@ -137,3 +137,15 @@ main {
     color: black;
     font-weight: bold;
   }
+  #attack{
+    width: 10%;
+    height: 6%;
+  }
+  #skill{
+    width: 10%;
+    height: 6%;
+  }
+  #ultimate{
+    width: 10%;
+    height: 6%;
+  }

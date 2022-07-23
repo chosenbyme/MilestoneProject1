@@ -1,4 +1,6 @@
 //Sound source: https://www.freesoundeffects.com/
+//Image source:https://itch.io/  https://www.aigei.com/
+
 class sound{ constructor(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -99,7 +101,7 @@ function SPstat(){
     }
 
 function SPgain(){
-    if(Math.random() < 0.45 && SP < 100){
+    if(Math.random() < 0.65 && SP < 100){
         SP += 10
         SPstat()
     }
@@ -177,6 +179,8 @@ function HeroSkill(){
         }
         AttackMove()
         async function AttackEffect(){
+            const effect = newEffect(800,200, 5 ,'./assets/effect/slash.gif')
+            setTimeout(()=> effect.element.remove(),1500 )
             let Sound = new sound('./assets/sound/skill.mp3')
             setTimeout(()=> Sound.play(), 200 )
         }
@@ -201,7 +205,15 @@ function HeroUltimate(){
         AttackMove()
         async function AttackEffect(){
             let Sound = new sound('./assets/sound/ultimate.mp3')
-            setTimeout(()=> Sound.play(),700 )
+            setTimeout(()=> Sound.play(),600 )
+            const effect0 = newEffect(800,180,3)
+            const effect1 = newEffect(890,240,4)
+            const effect2 = newEffect(890,240,5)
+            await Promise.all[
+                effect0.stop(2200,'./assets/effect/Iuwa.gif'),
+                effect1.stop(2000,'./assets/effect/lightning.gif'),
+                effect2.stop(2800,'./assets/effect/light.gif')
+            ]
         }
         AttackEffect()
     return DemonHP  
@@ -223,10 +235,10 @@ function DemonAttack(){
         }
     AttackMove()
     function AttackEffect(){
-        const effect0 = newEffect(280,200, 3 ,'./assets/effect/fire.gif')
+        const effect = newEffect(280,200, 5 ,'./assets/effect/fire.gif')
         let Sound = new sound('./assets/sound/fire.mp3')
         Sound.play()
-        setTimeout(()=> effect0.element.remove(),1500 )
+        setTimeout(()=> effect.element.remove(),1500 )
     }
     AttackEffect()
     return HeroHP
@@ -274,11 +286,11 @@ function DemonUltimate(){
         const effect1 = newEffect(650,550,4)
         const effect2 = newEffect(750,550,5)
         let Sound = new sound('./assets/sound/Explosion.mp3')
-        setTimeout(() =>Sound.play(),1500)
+        setTimeout(() => Sound.play(),1500 )
         await Promise.all[
-            effect0.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
-            effect1.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
-            effect2.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif')
+            effect0.LowLeft(1800,'./assets/effect/fire_strike_2.gif',1800,'./assets/effect/fire_explosion.gif'),
+            effect1.LowLeft(1800,'./assets/effect/fire_strike_2.gif',1800,'./assets/effect/fire_explosion.gif'),
+            effect2.LowLeft(1800,'./assets/effect/fire_strike_2.gif',1800,'./assets/effect/fire_explosion.gif')
         ]
     }
     AttackEffect()
@@ -294,7 +306,7 @@ async function GetUserChoice(){
     PlayDiv.style.position = 'relative'
     PlayDiv.style.zIndex = '2'
     attack.setAttribute('type', 'image');
-    attack.src = "./assets/test.png"
+    attack.src = "./assets/button-Attack.png"
     attack.style.position = 'relative'
     attack.style.zIndex = '2'
     attack.id = 'attack'
@@ -302,20 +314,20 @@ async function GetUserChoice(){
     move(attack).to(400, 330)
     let skill = document.createElement('input')
     skill.setAttribute('type', 'image');
-    skill.src = "./assets/test.png"
+    skill.src = "./assets/button-Skill.png"
     skill.style.position = 'relative'
     skill.style.zIndex = '2'
     skill.id = 'skill'
     skill.setAttribute('title', 'Blade Storm: Cost 20SP to deal higher damage'); 
-    move(skill).to(400, 250)
+    move(skill).to(400, 280)
     let ultimate = document.createElement('input')
     ultimate.setAttribute('type', 'image');
-    ultimate.src = "./assets/test.png"
+    ultimate.src = "./assets/button-Ultimate.png"
     ultimate.style.position = 'relative'
     ultimate.style.zIndex = '2'
     ultimate.id = 'ultimate'
     ultimate.setAttribute('title', 'Light of the Dawn: Spend All SP to deal damage');
-    move(ultimate).to(400, 170)
+    move(ultimate).to(400, 230)
     PlayDiv.append(attack,skill,ultimate)
     document.body.append(PlayDiv)
     if(SP<20){skill.remove()}
@@ -325,7 +337,7 @@ async function GetUserChoice(){
             HeroAttack()
             SPgain()
             let i = Math.random()
-            if(i<0.14 && DemonHP > 0){
+            if(i<0.17 && DemonHP > 0){
                 DemonUltimate()
             }
             if(DemonHP >0){
@@ -351,7 +363,7 @@ async function GetUserChoice(){
             HeroUltimate()
             SPclear()
             let i = Math.random()
-            if(i<0.19 && DemonHP > 0){
+            if(i<0.20 && DemonHP > 0){
                 DemonUltimate()
             }
             if(DemonHP >0){

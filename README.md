@@ -15,7 +15,7 @@ skill would spend SP
 
 Hero:999HP 100SP 
 
--Attack:(299~349)DMG >>>45% chance to restore SP by 10
+-Attack:(299~349)DMG >>>65% chance to restore SP by 10
 
 -Skill:(500~599)DMG  >>>SP:20
 
@@ -25,7 +25,7 @@ Demon:3999HP
 
 -Attack:(66~99)DMG 
 <!-- -Skill:14%(129~149)DMG  -->
--Ultimate:19%(229~259)DMG  
+-Ultimate:18~20%(229~259)DMG  
 
 -------------Classification-------------
 
