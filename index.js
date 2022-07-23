@@ -1,4 +1,4 @@
-//declaration of main functions
+//Sound source: https://www.freesoundeffects.com/
 class sound{ constructor(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -15,7 +15,7 @@ class sound{ constructor(src) {
   }
 }
 
-var GameSound;
+let GameSound = new sound('./assets/sound/keyclick.mp3')
 
 function HealthBar(){
     let HPbar = document.getElementById('HeroHP')
@@ -66,21 +66,22 @@ function DemonStat(){
     setTimeout(()=>hp.remove(),1500)
 }
 
-function SkillStat(){
-    let hp = document.createElement('div')
-    hp.textContent = "-" + dmg + "!"
-    hp.id = 'Stat'
-    document.body.append(hp)
-    move(hp).to(330, 400)
-    setTimeout(()=>hp.remove(),1500)
-}
+// function SkillStat(){
+//     let hp = document.createElement('div')
+//     hp.textContent = "-" + dmg + "!"
+//     hp.id = 'Stat'
+//     document.body.append(hp)
+//     move(hp).to(330, 400)
+//     setTimeout(()=>hp.remove(),1500)
+// }
 
 function UltimateStat(){
     let hp = document.createElement('div')
     hp.textContent = "-" + dmg + "!!!"
     hp.id = 'Stat'
+    hp.style.color = 'Red'
     document.body.append(hp)
-    move(hp).to(330, 430)
+    move(hp).to(330, 410)
     setTimeout(()=>hp.remove(),1500)
 }
 
@@ -141,11 +142,13 @@ function HeroAttack(){
     const main = newCharacter('./assets/attack1.gif')
     move(main).to(180, 200)
     document.getElementById('Hero').style.display = 'none'
-    setTimeout(()=> document.getElementById('Hero').style.display = 'flex',1000 )
-    setTimeout(()=> main.remove(),1000 )
+    setTimeout(()=> document.getElementById('Hero').style.display = 'flex',400 )
+    setTimeout(()=> main.remove(),400 )
     }
     AttackMove()
     async function AttackEffect(){
+        let Sound = new sound('./assets/sound/attack.mp3')
+        setTimeout(()=> Sound.play(),200 )
     }
     AttackEffect()
     return DemonHP
@@ -160,7 +163,7 @@ function HeroSkill(){
     DMstat()
     DemonStat()
     function AttackMove(){
-        const main = newCharacter('./assets/attack1.gif')
+        const main = newCharacter('./assets/skill.gif')
         move(main).to(180, 200)
         document.getElementById('Hero').style.display = 'none'
         setTimeout(()=> document.getElementById('Hero').style.display = 'flex',1000 )
@@ -181,7 +184,7 @@ function HeroUltimate(){
     DMstat()
     DemonStat()
     function AttackMove(){
-        const main = newCharacter('./assets/attack1.gif')
+        const main = newCharacter('./assets/ultimateH.gif')
         move(main).to(180, 200)
         document.getElementById('Hero').style.display = 'none'
         setTimeout(()=> document.getElementById('Hero').style.display = 'flex',1000 )
@@ -189,6 +192,8 @@ function HeroUltimate(){
         }
         AttackMove()
         async function AttackEffect(){
+            let Sound = new sound('./assets/sound/ultimate.mp3')
+            setTimeout(()=> Sound.play(),700 )
         }
         AttackEffect()
     return DemonHP  
@@ -205,39 +210,41 @@ function DemonAttack(){
         const main = newCharacter('./assets/d_cleave.gif')
         move(main).to(500, 200)
         document.getElementById('Demon').style.display = 'none'
-        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1500 )
-        setTimeout(()=> main.remove(),1500 )
+        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1400 )
+        setTimeout(()=> main.remove(),1400 )
         }
     AttackMove()
     function AttackEffect(){
         const effect0 = newEffect(280,200, 3 ,'./assets/effect/fire.gif')
+        let Sound = new sound('./assets/sound/fire.mp3')
+        Sound.play()
         setTimeout(()=> effect0.element.remove(),1500 )
     }
     AttackEffect()
     return HeroHP
 }
 
-function DemonSkill(){
-    dmg = Math.floor(Math.random() * 41)+129
-    HeroHP -= dmg
-    if (HeroHP < 0 ){
-        HeroHP = 0
-    }
-    HPstat()
-    SkillStat()
-    function AttackMove(){
-        const main = newCharacter('./assets/d_cleave.gif')
-        move(main).to(500, 200)
-        document.getElementById('Demon').style.display = 'none'
-        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1500 )
-        setTimeout(()=> main.remove(),1500 )
-        }
-    AttackMove()
-        function AttackEffect(){
-        }
-        AttackEffect()
-    return HeroHP    
-}
+// function DemonSkill(){
+//     dmg = Math.floor(Math.random() * 41)+129
+//     HeroHP -= dmg
+//     if (HeroHP < 0 ){
+//         HeroHP = 0
+//     }
+//     HPstat()
+//     SkillStat()
+//     function AttackMove(){
+//         const main = newCharacter('./assets/d_cleave.gif')
+//         move(main).to(500, 200)
+//         document.getElementById('Demon').style.display = 'none'
+//         setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1400 )
+//         setTimeout(()=> main.remove(),1400 )
+//         }
+//     AttackMove()
+//         function AttackEffect(){
+//         }
+//         AttackEffect()
+//     return HeroHP    
+// }
 function DemonUltimate(){
     dmg = Math.floor(Math.random() * 51)+229
     HeroHP -= dmg
@@ -250,19 +257,19 @@ function DemonUltimate(){
         const main = newCharacter('./assets/d_cleave.gif')
         move(main).to(500, 200)
         document.getElementById('Demon').style.display = 'none'
-        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1500 )
-        setTimeout(()=> main.remove(),1500 )
+        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1400 )
+        setTimeout(()=> main.remove(),1400 )
         }
     AttackMove()
     async function AttackEffect(){
         const effect0 = newEffect(550,550,3)
         const effect1 = newEffect(650,550,4)
         const effect2 = newEffect(750,550,5)
-        GameSound = new sound('./assets/sound/Explosion.mp3')
-        setTimeout(() =>GameSound.play(),1500)
+        let Sound = new sound('./assets/sound/Explosion.mp3')
+        setTimeout(() =>Sound.play(),1500)
         await Promise.all[
             effect0.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
-            effect1.LowLeft(2000,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
+            effect1.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
             effect2.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif')
         ]
     }
@@ -311,9 +318,6 @@ async function GetUserChoice(){
             SPgain()
             let i = Math.random()
             if(i<0.14 && DemonHP > 0){
-                DemonSkill()
-            }
-            if(i>0.9 && DemonHP > 0){
                 DemonUltimate()
             }
             if(DemonHP >0){
@@ -326,10 +330,7 @@ async function GetUserChoice(){
             HeroSkill()
             SPcost()
             let i = Math.random()
-            if(i<0.14 && DemonHP > 0){
-                DemonSkill()
-            }
-            if(i>0.9 && DemonHP > 0){
+            if(i<0.19 && DemonHP > 0){
                 DemonUltimate()
             }
             if(DemonHP >0){
@@ -342,10 +343,7 @@ async function GetUserChoice(){
             HeroUltimate()
             SPclear()
             let i = Math.random()
-            if(i<0.14 && DemonHP > 0){
-                DemonSkill()
-            }
-            if(i>0.9 && DemonHP > 0){
+            if(i<0.19 && DemonHP > 0){
                 DemonUltimate()
             }
             if(DemonHP >0){

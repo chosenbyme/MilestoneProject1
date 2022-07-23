@@ -16,6 +16,7 @@ const loop = async () => {
 }
 
 function StartButton(){
+    GameSound.play()
     document.getElementById('start').remove()
     let start = document.createElement('div')
     start.textContent = 'Defeat the Demon! Use what you can!'
@@ -41,7 +42,12 @@ function Win(){
     end.id = 'end'
     end.style.position = 'absolute'
     end.style.zIndex = '10'
+    document.getElementById('Demon').remove()
+    let dead = newCharacter('./assets/d_death.gif')
+    move(dead).to(500, 200)
+    setTimeout(()=> dead.remove(), 2000 )
     document.body.append(end)
+
 }
 function Lose(){
     let end = document.createElement('img')
@@ -50,6 +56,10 @@ function Lose(){
     end.style.position = 'absolute'
     end.style.zIndex = '10'
     document.body.append(end)
+    document.getElementById('Hero').remove()
+    let dead = newCharacter('./assets/death.gif')
+    move(dead).to(180, 200)
+    setTimeout(()=> dead.remove(), 700 )
     document.getElementById('again').style.display = 'block'
 }
 function Wasted(){

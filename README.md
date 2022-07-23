@@ -8,17 +8,24 @@ Command your hero. Beat the Demon.
 -------------UI-------------
 
 Stats:HP/SP
+
 skill would spend SP
+
 //Stat//
+
 Hero:999HP 100SP 
+
 -Attack:(299~349)DMG >>>45% chance to restore SP by 10
+
 -Skill:(500~599)DMG  >>>SP:20
+
 -Ultimate:(SP*(18~22))DMG >>>SP:All
 
 Demon:3999HP
+
 -Attack:(66~99)DMG 
--Skill:14%(129~149)DMG  
--Ultimate:10%(229~259)DMG  
+<!-- -Skill:14%(129~149)DMG  -->
+-Ultimate:19%(229~259)DMG  
 
 -------------Classification-------------
 
@@ -34,9 +41,9 @@ SP cost:All
 Demon:
 "Fire Strike" attack target, deals damage (normal attack)
 
-15%:"Flame Attack" recklessly attack target with fire, deals moderate damage 
+<!-- "Flame Attack" recklessly attack target with fire, deals moderate damage (Void) -->
 
-10%:"Destruction" destructive strike that deals high damage.
+19%:"Destruction" destructive strike that deals high damage.
 
 -------------Goal-------------
 HP/SP will be updated across the game
@@ -45,7 +52,7 @@ Win: boss's HP is less than or equal to 0
 
 Lose: heros's HP is less than or equal to 0
 
-Wasted: Both Boss & Hero die at the same time.
+<!-- Wasted: Both Boss & Hero die at the same time. (Void) -->
 -------------position-------------
 Boss & Hero will act simultaneously
 -------------play-------------
