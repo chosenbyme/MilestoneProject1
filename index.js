@@ -83,6 +83,12 @@ function UltimateStat(){
     document.body.append(hp)
     move(hp).to(330, 410)
     setTimeout(()=>hp.remove(),1500)
+    let warn = document.createElement('div')
+    warn.textContent = "Destruction!"
+    warn.id = 'warn'
+    document.body.append(warn)
+    move(warn).to(500, 450)
+    setTimeout(()=>warn.remove(),1800)
 }
 
 function SPstat(){    
@@ -171,6 +177,8 @@ function HeroSkill(){
         }
         AttackMove()
         async function AttackEffect(){
+            let Sound = new sound('./assets/sound/skill.mp3')
+            setTimeout(()=> Sound.play(), 200 )
         }
         AttackEffect()
     return DemonHP  

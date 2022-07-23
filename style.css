@@ -51,6 +51,14 @@ main {
     font-weight: bold;
     z-index: 10;
 }
+#warn{
+  margin: 0;
+  position: absolute;
+  font-size: 60px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  z-index: 10;
+}
   #HeroHP {
     display: none;
     width: 10%;
