@@ -15,4 +15,15 @@ var SP = 100
         console.log(i)
     }
 
+    let i = Math.random()
+    if(i<0.14 && DemonHP > 0){
+        DemonSkill()
+    }
+    if(i>0.9 && DemonHP > 0){
+        DemonUltimate()
+    }
+    if(DemonHP >0){
+        DemonAttack()
+    }
+
 

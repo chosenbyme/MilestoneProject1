@@ -30,6 +30,42 @@ var SP = 100
 var dmg = 0
 var cost = 0
 
+function HeroStat(){
+    let hp = document.createElement('div')
+    hp.textContent = "-" + dmg
+    hp.id = 'Stat'
+    document.body.append(hp)
+    move(hp).to(330, 370)
+    setTimeout(()=>hp.remove(),1000)
+}
+
+function DemonStat(){
+    let hp = document.createElement('div')
+    hp.textContent = "-" + dmg
+    hp.id = 'Stat'
+    document.body.append(hp)
+    move(hp).to(920, 550)
+    setTimeout(()=>hp.remove(),1000)
+}
+
+function SkillStat(){
+    let hp = document.createElement('div')
+    hp.textContent = "-" + dmg + "!"
+    hp.id = 'Stat'
+    document.body.append(hp)
+    move(hp).to(330, 400)
+    setTimeout(()=>hp.remove(),1000)
+}
+
+function UltimateStat(){
+    let hp = document.createElement('div')
+    hp.textContent = "-" + dmg + "!!!"
+    hp.id = 'Stat'
+    document.body.append(hp)
+    move(hp).to(330, 430)
+    setTimeout(()=>hp.remove(),1000)
+}
+
 function SPstat(){    
     let k = Math.round(SP)
     setTimeout(function(){
@@ -38,12 +74,10 @@ function SPstat(){
     }
 
 function SPgain(){
-    if(Math.random() < 0.99 && SP < 100){
+    if(Math.random() < 0.45 && SP < 100){
         SP += 10
         SPstat()
     }
-    if(SP<=0){skill.remove();ultimate.remove()}
-    if(SP<20){skill.remove()}
     return SP
 }
 function SPclear(){
@@ -53,8 +87,6 @@ function SPclear(){
         SPstat()
     }
     SPstat()
-    skill.remove();
-    ultimate.remove();
     return SP
 }
 function SPcost(){
@@ -64,8 +96,6 @@ function SPcost(){
         SPstat()
     }
     SPstat()
-    if(SP<=0){skill.remove();ultimate.remove()}
-    if(SP<20){skill.remove()}
     return SP
 }
 
@@ -88,6 +118,18 @@ function HeroAttack(){
         DemonHP = 0
     }
     DMstat()
+    DemonStat()
+    function AttackMove(){
+    const main = newCharacter('./assets/attack1.gif')
+    move(main).to(180, 200)
+    document.getElementById('Hero').style.display = 'none'
+    setTimeout(()=> document.getElementById('Hero').style.display = 'flex',1000 )
+    setTimeout(()=> main.remove(),1000 )
+    }
+    AttackMove()
+    async function AttackEffect(){
+    }
+    AttackEffect()
     return DemonHP
 }
 
@@ -98,6 +140,18 @@ function HeroSkill(){
         DemonHP = 0
     }
     DMstat()
+    DemonStat()
+    function AttackMove(){
+        const main = newCharacter('./assets/attack1.gif')
+        move(main).to(180, 200)
+        document.getElementById('Hero').style.display = 'none'
+        setTimeout(()=> document.getElementById('Hero').style.display = 'flex',1000 )
+        setTimeout(()=> main.remove(),1000 )
+        }
+        AttackMove()
+        async function AttackEffect(){
+        }
+        AttackEffect()
     return DemonHP  
 }
 function HeroUltimate(){
@@ -107,6 +161,18 @@ function HeroUltimate(){
         DemonHP = 0
     }
     DMstat()
+    DemonStat()
+    function AttackMove(){
+        const main = newCharacter('./assets/attack1.gif')
+        move(main).to(180, 200)
+        document.getElementById('Hero').style.display = 'none'
+        setTimeout(()=> document.getElementById('Hero').style.display = 'flex',1000 )
+        setTimeout(()=> main.remove(),1000 )
+        }
+        AttackMove()
+        async function AttackEffect(){
+        }
+        AttackEffect()
     return DemonHP  
 }
 function DemonAttack(){
@@ -116,19 +182,23 @@ function DemonAttack(){
         HeroHP = 0
     }
     HPstat()
-    // const effect0 = newEffect(600,600,3)
-    // const effect1 = newEffect(700,600,4)
-    // const effect2 = newEffect(800,600,5)
-    // async function moveEffect(){
-    //     await Promise.all[
-    //         effect0.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
-    //         effect1.LowLeft(2000,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
-    //         effect2.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif')
-    //     ]
-    // }
-    // moveEffect()
-    return HeroHP  
+    HeroStat()
+    function AttackMove(){
+        const main = newCharacter('./assets/d_cleave.gif')
+        move(main).to(500, 200)
+        document.getElementById('Demon').style.display = 'none'
+        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1500 )
+        setTimeout(()=> main.remove(),1500 )
+        }
+    AttackMove()
+    function AttackEffect(){
+        const effect0 = newEffect(280,200, 3 ,'./assets/effect/fire.gif')
+        setTimeout(()=> effect0.element.remove(),1500 )
+    }
+    AttackEffect()
+    return HeroHP
 }
+
 function DemonSkill(){
     dmg = Math.floor(Math.random() * 41)+129
     HeroHP -= dmg
@@ -136,6 +206,18 @@ function DemonSkill(){
         HeroHP = 0
     }
     HPstat()
+    SkillStat()
+    function AttackMove(){
+        const main = newCharacter('./assets/d_cleave.gif')
+        move(main).to(500, 200)
+        document.getElementById('Demon').style.display = 'none'
+        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1500 )
+        setTimeout(()=> main.remove(),1500 )
+        }
+    AttackMove()
+        function AttackEffect(){
+        }
+        AttackEffect()
     return HeroHP    
 }
 function DemonUltimate(){
@@ -145,12 +227,33 @@ function DemonUltimate(){
         HeroHP = 0
     }
     HPstat()
+    UltimateStat()
+    function AttackMove(){
+        const main = newCharacter('./assets/d_cleave.gif')
+        move(main).to(500, 200)
+        document.getElementById('Demon').style.display = 'none'
+        setTimeout(()=> document.getElementById('Demon').style.display = 'flex',1500 )
+        setTimeout(()=> main.remove(),1500 )
+        }
+    AttackMove()
+    async function AttackEffect(){
+        const effect0 = newEffect(550,550,3)
+        const effect1 = newEffect(650,550,4)
+        const effect2 = newEffect(750,550,5)
+        await Promise.all[
+            effect0.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
+            effect1.LowLeft(2000,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif'),
+            effect2.LowLeft(1800,'./assets/effect/fire_strike_2.gif',2000,'./assets/effect/fire_explosion.gif')
+        ]
+    }
+    AttackEffect()
     return HeroHP     
 }
 
 ///Skill effect
 
 async function GetUserChoice(){
+    await sleep(3000)
     let PlayDiv = document.createElement('div')
     let attack = document.createElement('input')
     PlayDiv.style.position = 'relative'
@@ -160,7 +263,7 @@ async function GetUserChoice(){
     attack.style.position = 'relative'
     attack.style.zIndex = '2'
     attack.id = 'attack'
-    attack.setAttribute('title', 'Heroic Strike'); 
+    attack.setAttribute('title', 'Heroic Strike: Has 35% chance to restore 10 SP'); 
     move(attack).to(400, 330)
     let skill = document.createElement('input')
     skill.setAttribute('type', 'image');
@@ -168,7 +271,7 @@ async function GetUserChoice(){
     skill.style.position = 'relative'
     skill.style.zIndex = '2'
     skill.id = 'skill'
-    skill.setAttribute('title', 'Blade Storm'); 
+    skill.setAttribute('title', 'Blade Storm: Cost 20SP to deal higher damage'); 
     move(skill).to(400, 250)
     let ultimate = document.createElement('input')
     ultimate.setAttribute('type', 'image');
@@ -176,62 +279,63 @@ async function GetUserChoice(){
     ultimate.style.position = 'relative'
     ultimate.style.zIndex = '2'
     ultimate.id = 'ultimate'
-    ultimate.setAttribute('title', 'Light of the Dawn');
+    ultimate.setAttribute('title', 'Light of the Dawn: Spend All SP to deal damage');
     move(ultimate).to(400, 170)
     PlayDiv.append(attack,skill,ultimate)
     document.body.append(PlayDiv)
+    if(SP<20){skill.remove()}
+    if(SP<=0){ultimate.remove()}
 // the resolve function here is inspirated by Captain Anonymous https://codepen.io/anon/pen/jzpZMa?editors=0011
     return new Promise(function(resolve){attack.addEventListener('click', function(){
             HeroAttack()
-            DemonAttack()
             SPgain()
             let i = Math.random()
-            if(i<0.12){
+            if(i<0.14 && DemonHP > 0){
                 DemonSkill()
             }
-            if(i>0.9 && i<1){
+            if(i>0.9 && DemonHP > 0){
                 DemonUltimate()
             }
-            resolve(DemonHP <= 0 || HeroHP <= 0? 'dead': 'no')
+            if(DemonHP >0){
+                DemonAttack()
+            }
             PlayDiv.remove()
+            resolve(DemonHP <= 0 || HeroHP <= 0? 'dead': 'no')
         })
         skill.addEventListener('click', function(){
             HeroSkill()
-            DemonAttack()
             SPcost()
-            if(i<0.16){
+            let i = Math.random()
+            if(i<0.14 && DemonHP > 0){
                 DemonSkill()
             }
-            if(i>0.9 && i<1){
+            if(i>0.9 && DemonHP > 0){
                 DemonUltimate()
             }
-            resolve(DemonHP <= 0 || HeroHP <= 0? 'dead': 'no')
+            if(DemonHP >0){
+                DemonAttack()
+            }
             PlayDiv.remove()
+            resolve(DemonHP <= 0 || HeroHP <= 0? 'dead': 'no')
         })
         ultimate.addEventListener('click', function(){
             HeroUltimate()
-            DemonAttack()
             SPclear()
-            if(i<0.16){
+            let i = Math.random()
+            if(i<0.14 && DemonHP > 0){
                 DemonSkill()
             }
-            if(i>0.9 && i<1){
+            if(i>0.9 && DemonHP > 0){
                 DemonUltimate()
             }
-            PlayDiv.remove();
+            if(DemonHP >0){
+                DemonAttack()
+            }
+            PlayDiv.remove()
             resolve(DemonHP <= 0 || HeroHP <= 0? 'dead': 'no')
         })
     }
     )
-}
-
-function newCharacter(url){
-    let image = document.createElement('img')
-    image.src = url
-    image.style.position = 'relative'
-    image.style.zIndex = '2'
-    document.body.append(image)
-    return image
 }
 
 function move(element) {
@@ -240,40 +344,30 @@ function move(element) {
         element.style.left = left + 'px'
         element.style.bottom = bottom + 'px'
     } 
-    function moveCharacter(){ 
-        if(direction === 'left'){
-            x-=1
-        }
-        if(direction === 'up'){
-            y+=1
-        }
-        if(direction === 'right'){
-            x+=1
-        }
-        if(direction === 'down'){
-            y-=1
-        }
-        element.style.left = x + 'px'
-        element.style.bottom = y + 'px'
-    }
-        
-        setInterval(moveCharacter, 1)
         return {
             to: moveToCoordinates
         }
+    }
+    function newCharacter(url){
+        let character = document.createElement('img')
+        character.src = url
+        character.style.position = 'relative'
+        character.style.zIndex = '2'
+        document.body.append(character)
+        return character
     }
 
     function newImage(url){
         let effect = document.createElement('img')
         effect.src = url
-        effect.style.position = 'relative'
+        effect.style.position = 'absolute'
         effect.style.zIndex = '2'
         document.body.append(effect)
         return effect
     }
 
-    function newEffect(x, y, q) {
-        let element = newImage('./assets/effect/fire_strike_2.gif')
+    function newEffect(x, y, q, h){
+        let element = newImage(h)
         element.style.zIndex = q;
         element.style.position = 'absolute'
         let direction = null;
