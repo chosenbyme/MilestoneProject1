@@ -311,7 +311,7 @@ async function GetUserChoice(){
     attack.style.zIndex = '2'
     attack.id = 'attack'
     attack.setAttribute('title', 'Heroic Strike: Has 35% chance to restore 10 SP'); 
-    move(attack).to(400, 330)
+    move(attack).to(410, 330)
     let skill = document.createElement('input')
     skill.setAttribute('type', 'image');
     skill.src = "./assets/button-Skill.png"
@@ -319,7 +319,7 @@ async function GetUserChoice(){
     skill.style.zIndex = '2'
     skill.id = 'skill'
     skill.setAttribute('title', 'Blade Storm: Cost 20SP to deal higher damage'); 
-    move(skill).to(400, 280)
+    move(skill).to(410, 280)
     let ultimate = document.createElement('input')
     ultimate.setAttribute('type', 'image');
     ultimate.src = "./assets/button-Ultimate.png"
@@ -327,7 +327,7 @@ async function GetUserChoice(){
     ultimate.style.zIndex = '2'
     ultimate.id = 'ultimate'
     ultimate.setAttribute('title', 'Light of the Dawn: Spend All SP to deal damage');
-    move(ultimate).to(400, 230)
+    move(ultimate).to(410, 230)
     PlayDiv.append(attack,skill,ultimate)
     document.body.append(PlayDiv)
     if(SP<20){skill.remove()}
